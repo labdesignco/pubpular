@@ -6,7 +6,7 @@ Public API to query reviews
 
 ## Reviews Collection [/v1/reviews{?pub_id}]
 
-## List reviews of a single pub [GET]
+### List reviews of a single pub [GET]
 
 + Parameters
     + pub_id (integer)
@@ -23,3 +23,16 @@ Public API to query reviews
                 "created_at": "2018-04-11 7:30pm"
             }
         ]
+
+### Create reviews [POST]
+
++ Request (application/json)
+        
+        {
+            "pub_id": 13,
+            "reviewer_name": "Hendry G.",
+            "rating_given": 3,
+            "review": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+        }
+
++ Response 201 (application/json)
