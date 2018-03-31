@@ -1,0 +1,61 @@
+FORMAT: 1A
+
+# Pub API
+
+Public API to query available pubs by predefined filter/sorting criteria
+
+## List pubs by vicinity [/v1/pubs_by_vicinity{?latitude,longitude,page,size}] GET
+
+Return a paged response for closest pubs based on location
+
++ Parameters
+    + latitude (decimal) - Mandatory
+    + longitude (decimal) - Mandatory
+    + page (integer) - starts from 1
+    + size (integer) - optional. Defaults to 20
+
++ Response 200 (application/json)
+
+    [
+        {
+            "id": 12,
+            "name": "Loof",
+            "phone": "+65 6337 9416",
+            "address": "331 North Bridge Road, 03-07 Odeon Towers Extension", // optional
+            "district": "D8. Central - Little India", // optional
+            "time_opens": "7pm",
+            "time_closes": "2am",
+            "no_of_reviews": 277,
+            "reviews_rating": 4.7,
+            "cover_picture_url": "https://cdn.pubpular.com/cover/loof.png",
+            "images": [
+                "https://cdn.pubpular.com/pictures/loof-1.png",
+                "https://cdn.pubpular.com/pictures/loof-2.png"
+            ],
+            "deals": [
+                {
+                    "title": "One for one for limited period only",
+                    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+                    "fine_print": "- New customers only\n-Beers only\nMinimum spend $20"
+                }
+            ]
+        }
+    ]
+
+## List reviews of a single pub [/v1/pubs/{pub_id}/reviews] GET
+
++ Parameters
+    + pub_id (integer)
+
++ Response 200 (application/json)
+
+    [
+        {
+            "id": 108,
+            "pub_id": 12,
+            "reviewer_name": "Reese. M",
+            "rating_given": 7,
+            "review": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+            "created_at": "2018-04-11 7:30pm"
+        }
+    ]
