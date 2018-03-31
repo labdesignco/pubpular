@@ -2,7 +2,7 @@ FORMAT: 1A
 
 # Review API
 
-Public API to query reviews
+Query and create reviews
 
 ## Reviews Collection [/v1/reviews{?pub_id}]
 
@@ -27,12 +27,18 @@ Public API to query reviews
 ### Create reviews [POST]
 
 + Request (application/json)
-        
-        {
-            "pub_id": 13,
-            "reviewer_name": "Hendry G.",
-            "rating_given": 3,
-            "review": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-        }
+
+    + Headers
+
+            Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.InRlc3Qi.PhmEzCqGW-wpzCXoqGGZGLLu-LN6YAd7DAwqR_Tw0M4
+
+    + Body
+    
+            {
+                "pub_id": 13,
+                "reviewer_name": "Hendry G.",
+                "rating_given": 3,
+                "review": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+            }
 
 + Response 201 (application/json)
