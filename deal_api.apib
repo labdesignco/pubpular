@@ -1,0 +1,76 @@
+FORMAT: 1A
+
+# Deal API
+
+Deal Management and Query API
+
+## Deals Collection [/v1/deals{?pub_id}]
+
+### List Deals by Pub ID [GET]
+
++ Parameters
+    + pub_id (integer) - Mandatory
+
++ Response 200 (application/json)
+
+        [
+            {
+                "id": 199,
+                "pub_id": 2,
+                "title": "One for one for limited period only",
+                "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+                "fine_print": "- New customers only\n-Beers only\nMinimum spend $20",
+                "valid_from": "2018-3-1",
+                "valid_till": "2018-4-1",
+                "required_points": 100
+            }
+        ]
+
+### Create A New Deal [POST]
+
++ Request (application/json)
+
+    + Headers
+
+            Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.InRlc3Qi.PhmEzCqGW-wpzCXoqGGZGLLu-LN6YAd7DAwqR_Tw0M4
+
+    + Body
+    
+            {
+                "pub_id": 2,
+                "title": "One for one for limited period only",
+                "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+                "fine_print": "- New customers only\n-Beers only\nMinimum spend $20",
+                "valid_from": "2018-3-1",
+                "valid_till": "2018-4-1",
+                "required_points": 100
+            }
+
++ Response 204 (application/json)
+
+## Deal [/deals/{deal_id}]
+
+### Update an Existing Deal [PATCH]
+
++ Parameters
+    + deal_id (integer) - Mandatory
+
++ Request (application/json)
+
+    + Headers
+
+            Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.InRlc3Qi.PhmEzCqGW-wpzCXoqGGZGLLu-LN6YAd7DAwqR_Tw0M4
+
+    + Body
+    
+            {
+                "pub_id": 2,
+                "title": "One for one for limited period only",
+                "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+                "fine_print": "- New customers only\n-Beers only\nMinimum spend $20",
+                "valid_from": "2018-3-1",
+                "valid_till": "2018-4-1",
+                "required_points": 200
+            }
+
++ Response 204 (application/json)
