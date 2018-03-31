@@ -19,5 +19,20 @@ Check-in member to collect points and rewards [POST]
 
 + Response 204 (application/json)
 
+# GET /v1/reward_points
+
+Query accumulated reward points
+
++ Request (application/json)
+
+    + Headers
+
+            Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.InRlc3Qi.PhmEzCqGW-wpzCXoqGGZGLLu-LN6YAd7DAwqR_Tw0M4
+
++ Response 200 (application/json)
+
+        {
+            "reward_points": 20000
+        }
 
         
