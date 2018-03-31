@@ -19,7 +19,7 @@ Check-in member to collect points and rewards [POST]
 
 + Response 204 (application/json)
 
-# GET /v1/reward_points
+# GET /v1/accumulated_points
 
 Query accumulated reward points
 
@@ -32,7 +32,20 @@ Query accumulated reward points
 + Response 200 (application/json)
 
         {
-            "reward_points": 20000
+            "accumulated_points": 20000
         }
-
         
+# POST /v1/claim_a_deal{?deal_id}
+
+Claim a deal using accumulated_points
+
++ Parameters
+    + deal_id (integer) - Mandatory
+
++ Request (application/json)
+
+    + Headers
+
+            Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.InRlc3Qi.PhmEzCqGW-wpzCXoqGGZGLLu-LN6YAd7DAwqR_Tw0M4
+
++ Response 204 (application/json)
