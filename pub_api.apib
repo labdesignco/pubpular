@@ -4,7 +4,7 @@ FORMAT: 1A
 
 Public API to query available pubs by predefined filter/sorting criteria
 
-## Pubs Collection [/v1/pubs{?latitude,longitude,page,size}]
+## Pubs Collection [/v1/pubs{?latitude,longitude,page,search_term,deal_only}]
 
 ### List closest pubs based on location [GET]
 
@@ -14,7 +14,8 @@ Return a paged response for closest pubs based on location
     + latitude (decimal) - Mandatory
     + longitude (decimal) - Mandatory
     + page (integer) - starts from 1
-    + size (integer) - optional. Defaults to 20
+    + search_term (string) - return pubs with names with partial match
+    + deal_only (boolean) - either "t" or "f" 
 
 + Response 200 (application/json)
 
