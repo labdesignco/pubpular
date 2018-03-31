@@ -1,0 +1,33 @@
+FORMAT: 1A
+
+# Authentication API
+
+## Session Collection [/sessions]
+
+### Create a New Session [POST]
+
+Protected API require a session to be established using JWT token. JWT token is issued by POST-ing to /sessions
+
++ provider - "facebook" or "google"
++ age (integer) - The question
++ gender - Either "m" or "f"
+
++ Request (application/json)
+        
+        {
+            "provider": "facebook"
+            "profile": {
+                "name": "Tom",
+                "email: "tom@hardy.com",
+                "age": 20,
+                "gender": "m",
+                "drinking_profile": "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+            }
+        }
+
++ Response 201 (application/json)
+
+        {
+            "session_token": "eyJhbGciOiJIUzI1NiJ9.InRlc3Qi.PhmEzCqGW-wpzCXoqGGZGLLu-LN6YAd7DAwqR_Tw0M4",
+            "is_new": "t|f"
+        }
