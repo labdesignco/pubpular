@@ -7,15 +7,20 @@ FORMAT: 1A
 ### Create a New Session [POST]
 
 Protected API require a session to be established using JWT token. JWT token is issued by POST-ing to /sessions
+If calling a protected resource and the token has expired or is invalid, API returns 401 "unauthorized". In this case, client is 
+expected to call this session again
 
 + provider - "facebook" or "google"
++ username - Mandatory field.
++ profile - Only required when user is not registered. If user exists, this will override existing values in the database
 + age (integer) - The question
 + gender - Either "m" or "f"
 
 + Request (application/json)
         
         {
-            "provider": "facebook"
+            "provider": "facebook",
+            "username": "tom@hardy.com",
             "profile": {
                 "name": "Tom",
                 "email: "tom@hardy.com",
