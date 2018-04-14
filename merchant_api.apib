@@ -1,0 +1,42 @@
+# Merchant API 
+
+Management system for Merchant
+
+# POST /v1/merchant/register
+
+Allows frontend to register a new merchant
+
++ Request (application/json)
+        
+        {
+            "email": "tom@hardy.com",
+            "password": "thisismysecret",
+            "password_confirmation": "thisismysecret",
+            "first_name": "Tom",
+            "last_name": "Hardy"
+        }
+
++ Response 204 (application/json)
+
+# PATCH /v1/merchant/profile
+
+After register, a merchant can edit your profiles with more information. You can pass in partial information i.e. only phone field
+For `images`, since it is an array, you are required to pass in entire array
+
++ Request (application/json)
+
+        {
+            "pub_name": "Loof",
+            "phone": "+65 6337 9416",
+            "address": "331 North Bridge Road, 03-07 Odeon Towers Extension", // optional
+            "district": "D8. Central - Little India", // optional
+            "time_opens": "7pm",
+            "time_closes": "2am",
+            "cover_picture_url": "https://cdn.pubpular.com/cover/loof.png",
+            "images": [
+                "https://cdn.pubpular.com/pictures/loof-1.png",
+                "https://cdn.pubpular.com/pictures/loof-2.png"
+            ]    
+        }
+
++ Response 204 (application/json)

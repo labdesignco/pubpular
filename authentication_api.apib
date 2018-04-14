@@ -2,16 +2,16 @@ FORMAT: 1A
 
 # Authentication API
 
-## Session Collection [/v1/sessions]
-
-### Create a New Session [POST]
-
-Protected API require a session to be established using JWT token. JWT token is issued by POST-ing to /sessions
+Protected API require a session to be established using JWT token. JWT token is issued by POST-ing to /sessions/{member, merchant}
 If calling a protected resource and the token has expired or is invalid, API returns 401 "unauthorized". In this case, client is 
 expected to call this session again
 
+# POST /v1/sessions/member
+
+Member drinker logins via facebook/google. This API is called in the callback of the social login. 
+
 + provider - "facebook" or "google"
-+ username - Mandatory field.
++ username - Mandatory field
 + profile - Only required when user is not registered. If user exists, this will override existing values in the database
 + age (integer) - The question
 + gender - Either "m" or "f"
@@ -35,4 +35,24 @@ expected to call this session again
         {
             "session_token": "eyJhbGciOiJIUzI1NiJ9.InRlc3Qi.PhmEzCqGW-wpzCXoqGGZGLLu-LN6YAd7DAwqR_Tw0M4",
             "is_new": "t|f"
+        }
+
+# POST /v1/sessions/merchant
+
+Merchant logins via email/password. Frontend should implement a form to capture this information
+
++ email - Mandatory field
++ password - Mandatory
+
++ Request (application/json)
+        
+        {
+            "email": "tom@hardy.com",
+            "password": "thisismysecret"
+        }
+
++ Response 200 (application/json)
+
+        {
+            "session_token": "eyJhbGciOiJIUzI1NiJ9.InRlc3Qi.PhmEzCqGW-wpzCXoqGGZGLLu-LN6YAd7DAwqR_Tw0M4",
         }
